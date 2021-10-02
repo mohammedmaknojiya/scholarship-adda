@@ -1,0 +1,20 @@
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+  border-bottom: 2px solid #999999;
+}
+.nav-bar__links {
+  padding-right: 20px;
+}
+
+.nav-bar__link {
+  padding-right: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #999999;
+}
+.nav-bar__link:hover {
+  color: #21edd2;
+}

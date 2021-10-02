@@ -1,0 +1,23 @@
+.footer {
+  background-color: #999999;
+  height: 150px;
+  padding: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+}
+
+.footer-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}

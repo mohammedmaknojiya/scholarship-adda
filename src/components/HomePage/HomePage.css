@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,900&display=swap");
+
+.home-title {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.home-title-text {
+  font-family: "Nunito", sans-serif;
+  font-size: 64px;
+}
+
+.home-title-text:hover {
+  color: #21edd2;
+}
+
+.card-list {
+  display: flex;
+  padding-left: 30px;
+  padding-right: 30px;
+  justify-content: space-around;
+}

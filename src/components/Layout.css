@@ -1,0 +1,13 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+}
+.layout-items {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.layout-body {
+  flex: 1;
+}
