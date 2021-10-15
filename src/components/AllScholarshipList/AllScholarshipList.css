@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,900&display=swap");
+
+.scholarship-title {
+  font-family: "Nunito", sans-serif;
+  font-size: 40px;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+.search-bar-items {
+  display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.search-menu {
+  flex-grow: 4;
+}
+.search-menu input {
+  height: 27px;
+  width: 90%;
+  border-radius: 10px;
+  border: 1px solid #999999;
+}
+.search-menu input:focus {
+  outline: none;
+}
+
+.select-menu {
+  flex-grow: 1;
+  padding-right: 10px;
+}
+
+.select-menu select {
+  height: 30px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.select-menu select:focus {
+  outline: none;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+}

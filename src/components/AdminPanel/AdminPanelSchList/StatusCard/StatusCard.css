@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+.status-card {
+  display: flex;
+  height: 50px;
+  border: 2px solid #999999;
+  width: fit-content;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #21edd2;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #333232;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.sch-detail {
+  display: flex;
+  align-items: center;
+}
+.sch-name {
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
+}
+
+.sch-value {
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.status-buttons {
+  margin-left: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.status-button {
+  font-family: "Roboto", sans-serif;
+  width: 100px;
+  height: fit-content;
+  padding: 10px;
+  border: 0px;
+  border-radius: 20px;
+  background-color: black;
+  color: #ffffff;
+  font-weight: bold;
+  box-shadow: 1px 1px 10px #2b2a2a;
+  margin-left: 10px;
+}
+
+.status-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
