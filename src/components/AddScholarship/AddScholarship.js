@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormikControl from "../FormikForm/FormikControl";
@@ -24,10 +25,10 @@ const validationSchema = Yup.object({
   link_to_apply: Yup.string().required("Required"),
 });
 
-const onSubmit = (v) => {
+const onSubmit = (v, history) => {
   console.log(v);
+  history.push("/");
 };
-
 const gov_or_private_option = [
   { key: "Select Type", value: "" },
   { key: "Government ", value: "government" },
@@ -40,6 +41,8 @@ const nat_or_reg_option = [
 ];
 
 const AddScholarship = () => {
+  const history = useHistory();
+
   return (
     <div className="outer-container">
       <span className="sch-title">Add New Scholarship</span>
@@ -47,7 +50,7 @@ const AddScholarship = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={onSubmit}
+          onSubmit={(v) => onSubmit(v, history)}
         >
           {(formik) => {
             return (

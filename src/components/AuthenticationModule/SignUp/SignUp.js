@@ -3,6 +3,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormikControl from "../../FormikForm/FormikControl";
 import "./SignUp.css";
+import { useHistory } from "react-router";
 
 const initialValues = {
   email_id: "",
@@ -18,8 +19,9 @@ const validationSchema = Yup.object({
   user_or_admin: Yup.string().required("Required"),
 });
 
-const onSubmit = (v) => {
+const onSubmit = (v, history) => {
   console.log(v);
+  history.push("/");
 };
 
 const user_or_admin = [
@@ -29,6 +31,7 @@ const user_or_admin = [
 ];
 
 const SignUp = () => {
+  const history = useHistory();
   return (
     <div className="signup-container">
       <span className="signup-title">Sign Up</span>
@@ -36,7 +39,7 @@ const SignUp = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={onSubmit}
+          onSubmit={(v) => onSubmit(v, history)}
         >
           {(formik) => {
             return (

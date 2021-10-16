@@ -1,11 +1,20 @@
 import React from "react";
+import { useHistory } from "react-router";
 import "./SingleScholarship.css";
 
 const SingleScholarship = () => {
+  const history = useHistory();
   return (
     <div>
-      <button className="goback-button">Scholarship List</button>
-      <button className="goback-button">Home Page</button>
+      <button
+        className="goback-button"
+        onClick={() => history.push("/allSchList")}
+      >
+        Scholarship List
+      </button>
+      <button className="goback-button" onClick={() => history.push("/")}>
+        Home Page
+      </button>
       <div className="sch-details">
         <span className="sch-header">Scholarship Details:</span>
         <div className="single-info">

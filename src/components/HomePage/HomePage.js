@@ -9,8 +9,16 @@ const HomePage = () => {
         <span className="home-title-text">Scholarship Adda</span>
       </div>
       <div className="card-list">
-        <HomeCard title="All Scholarship List" btnText="See List" />
-        <HomeCard title="Add New Scholarship" btnText="Add New" />
+        <HomeCard
+          title="All Scholarship List"
+          btnText="See List"
+          redirectUrl="/allSchList"
+        />
+        <HomeCard
+          title="Add New Scholarship"
+          btnText="Add New"
+          redirectUrl="/addSch"
+        />
       </div>
       <br />
     </div>

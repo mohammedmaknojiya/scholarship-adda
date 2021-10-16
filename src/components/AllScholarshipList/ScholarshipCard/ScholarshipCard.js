@@ -1,7 +1,9 @@
 import React from "react";
+import { useHistory } from "react-router";
 import "./ScholarshipCard.css";
 
 const ScholarshipCard = ({ name, type, currentlyActive }) => {
+  const history = useHistory();
   return (
     <div className="card-items">
       <div className="card-name">
@@ -13,7 +15,12 @@ const ScholarshipCard = ({ name, type, currentlyActive }) => {
       <div>
         Currently Active: <span>{currentlyActive}</span>
       </div>
-      <button className="card-button">{"Know More >>"}</button>
+      <button
+        className="card-button"
+        onClick={() => history.push("/singleSch")}
+      >
+        {"Know More >>"}
+      </button>
     </div>
   );
 };

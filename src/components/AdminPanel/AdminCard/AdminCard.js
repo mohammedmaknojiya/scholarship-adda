@@ -1,15 +1,15 @@
 import React from "react";
 import { useHistory } from "react-router";
-import "./HomeCard.css";
+import "./AdminCard.css";
 
-const HomeCard = (props) => {
+const AdminCard = (props) => {
   const history = useHistory();
 
   return (
-    <div className="card">
-      <span className="card-title">{props.title} </span>
+    <div className="admin-card">
+      <span className="admin-card-title">{props.title} </span>
       <button
-        className="card-button"
+        className="admin-card-button"
         onClick={() => history.push(props.redirectUrl)}
       >
         {props.btnText}
@@ -18,4 +18,4 @@ const HomeCard = (props) => {
   );
 };
 
-export default HomeCard;
+export default AdminCard;
