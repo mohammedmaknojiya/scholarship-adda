@@ -7,6 +7,8 @@ import SingleScholarship from "./SingleScholarship/SingleScholarship";
 import AddScholarship from "./AddScholarship/AddScholarship";
 import AdminPanelSchList from "./AdminPanel/AdminPanelSchList/AdminPanelSchList";
 import AdminPanelVerify from "./AdminPanel/AdminPanelVerify/AdminPanelVerify";
+import SignUp from "./AuthenticationModule/SignUp/SignUp";
+import Login from "./AuthenticationModule/Login/Login";
 import "./Layout.css";
 
 const Layout = () => {
@@ -19,7 +21,9 @@ const Layout = () => {
         {/* <SingleScholarship /> */}
         {/* <AddScholarship /> */}
         {/* <AdminPanelSchList /> */}
-        <AdminPanelVerify />
+        {/* <AdminPanelVerify /> */}
+        {/* <SignUp /> */}
+        <Login />
       </div>
 
       <div className="layout-footer">
