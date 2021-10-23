@@ -1,7 +1,23 @@
 import React from "react";
 import ScholarshipCard from "./ScholarshipCard/ScholarshipCard";
+import { useSelector } from "react-redux";
 import "./AllScholarshipList.css";
+
 const AllScholarshipList = () => {
+  const data = useSelector((state) => state.Reducer);
+
+  const schList = data.map((single_obj) => {
+    return (
+      <ScholarshipCard
+        key={single_obj.sch_id}
+        id={single_obj.sch_id}
+        name={single_obj.sch_name}
+        type={single_obj.gov_or_private}
+        currentlyActive={single_obj.active_inactive}
+      />
+    );
+  });
+
   return (
     <div>
       <span className="scholarship-title">All Scholarship List</span>
@@ -24,58 +40,7 @@ const AllScholarshipList = () => {
           </select>
         </div>
       </div>
-      <div className="card-list">
-        <ScholarshipCard
-          name="National Scholarship"
-          type="government"
-          currentlyActive="yes"
-        />
-        <ScholarshipCard
-          name="National Scholarship"
-          type="government"
-          currentlyActive="yes"
-        />
-        <ScholarshipCard
-          name="National Scholarship"
-          type="government"
-          currentlyActive="yes"
-        />
-        <ScholarshipCard
-          name="National Scholarship"
-          type="government"
-          currentlyActive="yes"
-        />
-        <ScholarshipCard
-          name="National Scholarship"
-          type="government"
-          currentlyActive="yes"
-        />
-        <ScholarshipCard
-          name="National Scholarship"
-          type="government"
-          currentlyActive="yes"
-        />
-        <ScholarshipCard
-          name="National Scholarship"
-          type="government"
-          currentlyActive="yes"
-        />
-        <ScholarshipCard
-          name="National Scholarship"
-          type="government"
-          currentlyActive="yes"
-        />
-        <ScholarshipCard
-          name="National Scholarship"
-          type="government"
-          currentlyActive="yes"
-        />
-        <ScholarshipCard
-          name="National Scholarship"
-          type="government"
-          currentlyActive="yes"
-        />
-      </div>
+      <div className="card-list">{schList}</div>
     </div>
   );
 };

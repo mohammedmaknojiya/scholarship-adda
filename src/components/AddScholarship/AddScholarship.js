@@ -3,7 +3,9 @@ import { useHistory } from "react-router";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormikControl from "../FormikForm/FormikControl";
+import { useDispatch } from "react-redux";
 import "./AddScholarship.css";
+import { addScholarship } from "./../../Redux/ActionCreators";
 
 const initialValues = {
   sch_name: "",
@@ -25,8 +27,9 @@ const validationSchema = Yup.object({
   link_to_apply: Yup.string().required("Required"),
 });
 
-const onSubmit = (v, history) => {
+const onSubmit = (v, history, dispatch) => {
   console.log(v);
+  dispatch(addScholarship(v));
   history.push("/");
 };
 const gov_or_private_option = [
@@ -42,6 +45,7 @@ const nat_or_reg_option = [
 
 const AddScholarship = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   return (
     <div className="outer-container">
@@ -50,7 +54,7 @@ const AddScholarship = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(v) => onSubmit(v, history)}
+          onSubmit={(v) => onSubmit(v, history, dispatch)}
         >
           {(formik) => {
             return (

@@ -22,7 +22,7 @@ const Layout = () => {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/allSchList" component={AllScholarshipList} />
-            <Route exact path="/singleSch" component={SingleScholarship} />
+            <Route exact path="/singleSch/:id" component={SingleScholarship} />
             <Route exact path="/addSch" component={AddScholarship} />
             <Route exact path="/adminPanel" component={AdminPanel} />
             <Route
