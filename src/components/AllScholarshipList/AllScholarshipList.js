@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import "./AllScholarshipList.css";
 
 const AllScholarshipList = () => {
-  const data = useSelector((state) => state.Reducer);
+  const data = useSelector((state) => state.Reducer.data);
 
   const schList = data.map((single_obj) => {
     return (

@@ -8,7 +8,7 @@ export const data = [
     income_limit: "120000",
     deadline: "12th oct",
     link_to_apply: "http://schadd.com",
-    active_inactive: "yes",
+    active_inactive: "no",
     procedure: "this is procedure",
   },
   {

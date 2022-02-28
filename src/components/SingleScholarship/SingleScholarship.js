@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const SingleScholarship = () => {
   const history = useHistory();
   const { id } = useParams();
-  const data = useSelector((state) => state.Reducer);
+  const data = useSelector((state) => state.Reducer.data);
   const singleSchData = data.find((obj) => obj.sch_id === parseInt(id));
   return (
     <div>

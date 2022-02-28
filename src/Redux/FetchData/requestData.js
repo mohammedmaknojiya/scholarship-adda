@@ -1,0 +1,36 @@
+export const requestData = [
+  {
+    sch_id: 1,
+    sch_name: "national scholarship1",
+    gov_or_private: "government",
+    nat_or_reg: "national",
+    eligiblity: "this all is criteria",
+    income_limit: "120000",
+    deadline: "12th oct",
+    link_to_apply: "http://schadd.com",
+    active_inactive: "yes",
+    procedure: "this is procedure",
+    person: {
+      name: "mohammed",
+      email: "abc@gmail.com",
+      contact_no: "7777777777",
+    },
+  },
+  {
+    sch_id: 2,
+    sch_name: "national scholarship2",
+    gov_or_private: "government",
+    nat_or_reg: "national",
+    eligiblity: "this all is criteria",
+    income_limit: "120000",
+    deadline: "12th oct",
+    link_to_apply: "http://schadd.com",
+    active_inactive: "yes",
+    procedure: "this is procedure",
+    person: {
+      name: "mohammed1",
+      email: "abc@gmail.com",
+      contact_no: "7777777777",
+    },
+  },
+];
