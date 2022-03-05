@@ -1,16 +1,33 @@
-import React from "react";
-import ScholarshipCard from "./ScholarshipCard/ScholarshipCard";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+
+import ScholarshipCard from "./ScholarshipCard/ScholarshipCard";
+import { getSchList } from "../../api/ScholarshipApi";
+
 import "./AllScholarshipList.css";
 
 const AllScholarshipList = () => {
   const data = useSelector((state) => state.Reducer.data);
+  const [schListData, setSchListData] = useState([]);
 
-  const schList = data.map((single_obj) => {
+  const getScholarshipList = async () => {
+    try {
+      const result = await getSchList();
+      setSchListData([...result.data]);
+    } catch (err) {
+      console.log("unable to fetch data");
+    }
+  };
+
+  useEffect(() => {
+    getScholarshipList();
+  }, []);
+
+  const schList = schListData.map((single_obj) => {
     return (
       <ScholarshipCard
-        key={single_obj.sch_id}
-        id={single_obj.sch_id}
+        key={single_obj._id}
+        id={single_obj._id}
         name={single_obj.sch_name}
         type={single_obj.gov_or_private}
         currentlyActive={single_obj.active_inactive}

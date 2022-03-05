@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-import "./SingleScholarship.css";
 import { useSelector } from "react-redux";
+
+import { getSingleSch } from "../../api/ScholarshipApi";
+
+import "./SingleScholarship.css";
 
 const SingleScholarship = () => {
   const history = useHistory();
   const { id } = useParams();
-  const data = useSelector((state) => state.Reducer.data);
-  const singleSchData = data.find((obj) => obj.sch_id === parseInt(id));
+  // const data = useSelector((state) => state.Reducer.data);
+  // const singleSchData = data.find((obj) => obj.sch_id === parseInt(id));
+  const [singleSchData, setSingleSchData] = useState();
+
+  const getSingleSchData = async () => {
+    try {
+      const result = await getSingleSch(id);
+      setSingleSchData({ ...result.data });
+    } catch (err) {
+      console.log("unable to fetch data");
+    }
+  };
+
+  useEffect(() => {
+    getSingleSchData();
+  }, []);
   return (
     <div>
       <button
@@ -23,35 +40,37 @@ const SingleScholarship = () => {
         <span className="sch-header">Scholarship Details:</span>
         <div className="single-info">
           <span className="sch-title">Scholarship Name:</span>
-          <span className="sch-info">{singleSchData.sch_name}</span>
+          <span className="sch-info">{singleSchData?.sch_name || ""}</span>
         </div>
         <div className="single-info">
           <span className="sch-title">Government / Private:</span>
-          <span className="sch-info">{singleSchData.gov_or_private}</span>
+          <span className="sch-info">
+            {singleSchData?.gov_or_private || ""}
+          </span>
         </div>
         <div className="single-info">
           <span className="sch-title">National / Regional:</span>
-          <span className="sch-info">{singleSchData.nat_or_reg}</span>
+          <span className="sch-info">{singleSchData?.nat_or_reg || ""}</span>
         </div>
         <div className="single-info">
           <span className="sch-title">Eligiblity Criteria:</span>
-          <span className="sch-info">{singleSchData.eligiblity}</span>
+          <span className="sch-info">{singleSchData?.eligiblity || ""}</span>
         </div>
         <div className="single-info">
           <span className="sch-title">Income Limit:</span>
-          <span className="sch-info">{singleSchData.income_limit}</span>
+          <span className="sch-info">{singleSchData?.income_limit || ""}</span>
         </div>
         <div className="single-info">
           <span className="sch-title">Deadline:</span>
-          <span className="sch-info">{singleSchData.deadline}</span>
+          <span className="sch-info">{singleSchData?.deadline || ""}</span>
         </div>
         <div className="single-info">
           <span className="sch-title">Procedure:</span>
-          <span className="sch-info">{singleSchData.procedure}</span>
+          <span className="sch-info">{singleSchData?.procedure || ""}</span>
         </div>
         <div className="single-info">
           <span className="sch-title">Link To Apply:</span>
-          <span className="sch-info">{singleSchData.link_to_apply}</span>
+          <span className="sch-info">{singleSchData?.link_to_apply || ""}</span>
         </div>
       </div>
     </div>

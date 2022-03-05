@@ -2,10 +2,13 @@ import React from "react";
 import { useHistory } from "react-router";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import FormikControl from "../FormikForm/FormikControl";
 import { useDispatch } from "react-redux";
-import "./AddScholarship.css";
+
+import FormikControl from "../FormikForm/FormikControl";
 import { addScholarship } from "./../../Redux/ActionCreators";
+
+import "./AddScholarship.css";
+import { ReqSch } from "../../api/ReqScholarshipApi";
 
 const initialValues = {
   sch_name: "",
@@ -15,6 +18,7 @@ const initialValues = {
   income_limit: "",
   deadline: "",
   link_to_apply: "",
+  procedure: "",
 };
 
 const validationSchema = Yup.object({
@@ -25,12 +29,29 @@ const validationSchema = Yup.object({
   income_limit: Yup.string().required("Required"),
   deadline: Yup.string().required("Required"),
   link_to_apply: Yup.string().required("Required"),
+  procedure: Yup.string().required("Required"),
 });
 
-const onSubmit = (v, history, dispatch) => {
+const onSubmit = async (v, history, dispatch) => {
   console.log(v);
-  dispatch(addScholarship(v));
-  history.push("/");
+  // dispatch(addScholarship(v));
+  const data = {
+    ...v,
+    active_inactive: "yes",
+    deadline: "2022-01-14T15:22:44.541Z",
+    person: {
+      name: "mmra",
+      email: "abc@gmail.com",
+      contact_no: "9999999999",
+    },
+  };
+  try {
+    const result = await ReqSch(data);
+  } catch (err) {
+    console.log("unable to add sch");
+  } finally {
+    history.push("/");
+  }
 };
 const gov_or_private_option = [
   { key: "Select Type", value: "" },
@@ -80,6 +101,11 @@ const AddScholarship = () => {
                   control="textarea"
                   label="Eligiblity Criteria"
                   name="eligiblity"
+                />
+                <FormikControl
+                  control="textarea"
+                  label="Procedure"
+                  name="procedure"
                 />
                 <FormikControl
                   control="input"
